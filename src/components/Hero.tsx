@@ -5,7 +5,7 @@ import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 
 const Hero = () => {
-  const [showOffer, setShowOffer] = useState(true);
+  // Offer state removed as not currently used
   const [formData, setFormData] = useState({
     date: '',
     eventType: '',
@@ -106,7 +106,7 @@ const Hero = () => {
         <link rel="canonical" href="https://saramahal.com" />
       </Helmet>
       
-      <section className="relative overflow-hidden min-h-screen flex items-center pt-16">
+    <section className="relative overflow-hidden min-h-screen flex items-center pt-16">
         {/* Beautiful Wedding Sketched Designs Background */}
         <div className="absolute inset-0 -z-5 opacity-5 pointer-events-none">
           <svg width="100%" height="100%" viewBox="0 0 1400 900" className="text-white">
@@ -209,29 +209,29 @@ const Hero = () => {
           </svg>
         </div>
 
-        {/* Falling Light Animation - Even Slower */}
-        <div className="absolute inset-0 -z-5">
-          {[...Array(12)].map((_, i) => (
-            <motion.div
-              key={`light-${i}`}
-              className="absolute w-2 h-2 bg-white rounded-full opacity-50"
-              style={{
-                left: `${Math.random() * 100}%`,
-                top: `-10px`,
-              }}
-              animate={{
-                y: ['0vh', '110vh'],
-                opacity: [0, 0.4, 0],
-              }}
-              transition={{
-                duration: 12 + Math.random() * 6,
-                repeat: Infinity,
-                delay: Math.random() * 12,
-                ease: "linear",
-              }}
-            />
-          ))}
-        </div>
+      {/* Falling Light Animation - Even Slower */}
+      <div className="absolute inset-0 -z-5">
+        {[...Array(12)].map((_, i) => (
+          <motion.div
+            key={`light-${i}`}
+            className="absolute w-2 h-2 bg-white rounded-full opacity-50"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `-10px`,
+            }}
+            animate={{
+              y: ['0vh', '110vh'],
+              opacity: [0, 0.4, 0],
+            }}
+            transition={{
+              duration: 12 + Math.random() * 6,
+              repeat: Infinity,
+              delay: Math.random() * 12,
+              ease: "linear",
+            }}
+          />
+        ))}
+      </div>
 
         {/* Floating Traditional Wedding Elements */}
         <div className="absolute inset-0 -z-5 overflow-hidden pointer-events-none">
@@ -307,8 +307,8 @@ const Hero = () => {
           ))}
         </div>
 
-                 {/* Background image/gradient - with purple overlay */}
-         <div className="absolute inset-0 -z-10">
+      {/* Background image/gradient - with purple overlay */}
+      <div className="absolute inset-0 -z-10">
            <img
              src="/hero-background.jpg"
              alt="Sara Mahal wedding venue exterior view with traditional Tamil architecture and beautiful landscaping in Kinathukadavu Coimbatore"
@@ -323,74 +323,74 @@ const Hero = () => {
                if (parent) {
                  parent.style.background = 'linear-gradient(135deg, #1e293b 0%, #7c3aed 50%, #1e293b 100%)';
                }
-             }}
-           />
-           <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-purple-950/85 to-slate-950/90" />
-         </div>
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-purple-950/85 to-slate-950/90" />
+      </div>
 
-        {/* Content */}
-        <div className="container mx-auto px-4 relative z-10 py-8">
-          <div className="grid md:grid-cols-12 gap-6 items-center min-h-[calc(100vh-8rem)]">
-            {/* Text Content */}
-            <motion.div 
-              className="md:col-span-7 text-white flex flex-col justify-center"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-            >
+      {/* Content */}
+      <div className="container mx-auto px-4 relative z-10 py-8">
+        <div className="grid md:grid-cols-12 gap-6 items-center min-h-[calc(100vh-8rem)]">
+          {/* Text Content */}
+          <motion.div 
+            className="md:col-span-7 text-white flex flex-col justify-center"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
               <h1 className="text-2xl md:text-4xl lg:text-5xl font-serif mb-5 leading-tight text-white drop-shadow-lg">
                 Your <span className="text-secondary font-bold">Dream</span> Celebration <br />
                 <span className="text-primary font-bold">Starts</span> at Sara Mahal
-              </h1>
+            </h1>
               <p className="text-base md:text-lg text-white mb-6 max-w-2xl drop-shadow-md">
                 Premier marriage hall in Kinathukadavu, Coimbatore - where traditional celebrations meet modern elegance. Experience the perfect blend of culture and comfort for your special day.
-              </p>
+            </p>
 
               {/* Features List - Updated with broader appeal */}
               <div className="grid sm:grid-cols-2 gap-3 mb-6">
-                {[
+              {[
                   "Traditional wedding ceremonies & rituals",
                   "Fully air-conditioned halls (500+ capacity)",
                   "Premium sound & lighting systems",
                   "Authentic South Indian catering",
                   "Spacious parking for 200+ vehicles",
                   "Professional event photography"
-                ].map((feature, idx) => (
-                  <motion.div 
-                    key={idx}
-                    className="flex items-center"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.1 * idx + 0.5, duration: 0.5 }}
-                  >
+              ].map((feature, idx) => (
+                <motion.div 
+                  key={idx}
+                  className="flex items-center"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.1 * idx + 0.5, duration: 0.5 }}
+                >
                     <CheckCircle className="h-4 w-4 text-primary mr-2 flex-shrink-0" />
                     <span className="text-sm text-white drop-shadow">{feature}</span>
-                  </motion.div>
-                ))}
-              </div>
+                </motion.div>
+              ))}
+            </div>
 
-              {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button 
-                  size="lg" 
-                  className="gap-2 text-base px-8 py-3"
-                  asChild
-                >
-                  <a href="#contact">
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button 
+                size="lg" 
+                className="gap-2 text-base px-8 py-3"
+                asChild
+              >
+                <a href="#contact">
                     Book Your Event Date <CalendarDays className="h-5 w-5" />
-                  </a>
-                </Button>
-                <Button 
-                  variant="outline" 
-                  size="lg" 
-                  className="gap-2 bg-white/10 backdrop-blur-sm text-white border-white/30 hover:bg-white/20 text-base px-8 py-3"
-                  asChild
-                >
-                  <a href="#gallery">
+                </a>
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg" 
+                className="gap-2 bg-white/10 backdrop-blur-sm text-white border-white/30 hover:bg-white/20 text-base px-8 py-3"
+                asChild
+              >
+                <a href="#gallery">
                     View Our Venue <ArrowRight className="h-5 w-5" />
-                  </a>
-                </Button>
-              </div>
+                </a>
+              </Button>
+            </div>
 
               {/* Location Badge */}
               <div className="mt-6 inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white border border-white/20">
@@ -399,25 +399,25 @@ const Hero = () => {
                 </svg>
                 <span className="text-sm font-medium">Located in Kinathukadavu, Coimbatore - Tamil Nadu</span>
               </div>
-            </motion.div>
+          </motion.div>
 
             {/* Availability Checker */}
-            <motion.div 
+          <motion.div 
               className="md:col-span-5 relative"
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-            >
+          >
               <div className="bg-white/10 backdrop-blur-lg p-8 rounded-3xl border border-white/20 shadow-2xl">
                 <h3 className="text-2xl font-serif text-white mb-6 text-center">Check Date Availability</h3>
-                
+              
                 <div className="space-y-4">
                   <div>
                     <label className="block text-white text-sm font-medium mb-2">
                       Event Date
                     </label>
-                    <input
-                      type="date"
+                    <input 
+                      type="date" 
                       name="date"
                       value={formData.date}
                       onChange={handleInputChange}
@@ -444,16 +444,16 @@ const Hero = () => {
                       <option value="naming" className="bg-gray-800 text-white">Naming Ceremony</option>
                       <option value="anniversary" className="bg-gray-800 text-white">Anniversary Celebration</option>
                     </select>
-                  </div>
-
-                  <div>
+                </div>
+                
+                <div>
                     <label className="block text-white text-sm font-medium mb-2">
                       Expected Guests
-                    </label>
+                  </label>
                     <select
-                      name="guests"
-                      value={formData.guests}
-                      onChange={handleInputChange}
+                    name="guests"
+                    value={formData.guests}
+                    onChange={handleInputChange}
                       className="w-full px-4 py-3 rounded-xl bg-white/20 border border-white/30 text-white focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 [&>option]:bg-gray-800 [&>option]:text-white"
                     >
                       <option value="" className="bg-gray-800 text-white">Select guest count</option>
@@ -464,20 +464,20 @@ const Hero = () => {
                       <option value="400-500" className="bg-gray-800 text-white">400-500 guests</option>
                       <option value="500+" className="bg-gray-800 text-white">500+ guests</option>
                     </select>
-                  </div>
-
-                  <Button 
-                    onClick={handleAvailabilityCheck}
-                    disabled={isChecking || !formData.date || !formData.eventType}
+                </div>
+                
+                <Button 
+                  onClick={handleAvailabilityCheck}
+                  disabled={isChecking || !formData.date || !formData.eventType}
                     className="w-full py-3 bg-primary hover:bg-primary/90 text-white font-semibold rounded-xl transition-all duration-300"
-                  >
+                >
                     {isChecking ? "Checking..." : "Check Availability"}
-                  </Button>
+                </Button>
                 </div>
 
                 {/* Availability Result */}
                 {availabilityResult && (
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     className="mt-6 p-4 rounded-xl border-2"
@@ -540,9 +540,9 @@ const Hero = () => {
                 )}
               </div>
             </motion.div>
-          </div>
+            </div>
         </div>
-      </section>
+    </section>
     </>
   );
 };

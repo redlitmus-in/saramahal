@@ -1,119 +1,6 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Star, Users, Clock, Calendar, ArrowRight, Heart, LucideIcon, Video, Music, CalendarCheck, Utensils, Sparkles, Camera, Car, MapPin } from "lucide-react";
-
-interface VenueCardProps {
-  image: string;
-  name: string;
-  location: string;
-  price: string;
-  rating: number;
-  reviews: number;
-  capacity: string;
-  featured?: boolean;
-}
-
-const venueData: VenueCardProps[] = [
-  {
-    image: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80", 
-    name: "Garden Paradise",
-    location: "South Delhi",
-    price: "₹1,50,000",
-    rating: 4.9,
-    reviews: 128,
-    capacity: "200-500",
-    featured: true
-  },
-  {
-    image: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80",
-    name: "Royal Ballroom",
-    location: "Central Delhi",
-    price: "₹2,25,000",
-    rating: 4.8,
-    reviews: 94,
-    capacity: "400-800",
-  },
-  {
-    image: "https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80",
-    name: "Lakeside Retreat",
-    location: "North Delhi",
-    price: "₹1,75,000",
-    rating: 4.7,
-    reviews: 76,
-    capacity: "100-300",
-  }
-];
-
-const filters = [
-  { id: "all", label: "All Venues" },
-  { id: "featured", label: "Featured" },
-  { id: "indoor", label: "Indoor" },
-  { id: "outdoor", label: "Outdoor" },
-];
-
-const VenueCard = ({ image, name, location, price, rating, reviews, capacity, featured }: VenueCardProps) => {
-  return (
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      whileHover={{ y: -5, boxShadow: "0 20px 30px rgba(0, 0, 0, 0.1)" }}
-      className="bg-white rounded-2xl overflow-hidden shadow-lg relative flex flex-col h-full"
-    >
-      {featured && (
-        <Badge className="absolute top-4 right-4 z-10 bg-primary text-white">Featured</Badge>
-      )}
-      <div className="h-56 overflow-hidden">
-        <img 
-          src={image} 
-          alt={name} 
-          className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
-        />
-      </div>
-      <div className="p-6 flex-1 flex flex-col">
-        <div className="flex justify-between items-start">
-          <div>
-            <h3 className="text-xl font-serif font-semibold mb-1">{name}</h3>
-            <p className="text-gray-500 text-sm">{location}</p>
-          </div>
-          <div className="flex items-center">
-            <Star className="w-4 h-4 text-yellow-500 mr-1 fill-yellow-500" />
-            <span className="font-medium">{rating}</span>
-            <span className="text-sm text-gray-500 ml-1">({reviews})</span>
-          </div>
-        </div>
-        
-        <div className="grid grid-cols-2 gap-4 mt-6">
-          <div className="flex items-center">
-            <Users className="w-4 h-4 text-gray-400 mr-2" />
-            <span className="text-sm">{capacity} guests</span>
-          </div>
-          <div className="flex items-center">
-            <Clock className="w-4 h-4 text-gray-400 mr-2" />
-            <span className="text-sm">6+ hours</span>
-          </div>
-          <div className="flex items-center">
-            <Calendar className="w-4 h-4 text-gray-400 mr-2" />
-            <span className="text-sm">Available</span>
-          </div>
-        </div>
-        
-        <div className="mt-6 pt-4 border-t border-gray-100 flex justify-between items-center">
-          <div>
-            <span className="text-sm text-gray-500">Starting from</span>
-            <p className="text-lg font-semibold">{price}</p>
-          </div>
-          <Button variant="outline" size="sm" className="group">
-            View Details 
-            <ArrowRight className="ml-1 w-4 h-4 transition-transform group-hover:translate-x-1" />
-          </Button>
-        </div>
-      </div>
-    </motion.div>
-  );
-};
+import { Heart, Users, Music, Utensils, Sparkles, Camera, Car, MapPin } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
 interface Feature {
   icon: LucideIcon;
@@ -124,49 +11,49 @@ interface Feature {
 
 const features: Feature[] = [
   {
-    icon: <Heart className="h-8 w-8" />,
+    icon: Heart,
     title: "Traditional Wedding Ceremonies",
     description: "Authentic wedding rituals and customs conducted by experienced priests with proper traditional ceremonies for all cultural backgrounds.",
     trending: "Wedding rituals Coimbatore"
   },
   {
-    icon: <Users className="h-8 w-8" />,
+    icon: Users,
     title: "500+ Guest Capacity",
     description: "Spacious air-conditioned halls to accommodate large families and communities. Perfect for grand celebrations with comfortable seating arrangements.",
     trending: "Large wedding venues Coimbatore"
   },
   {
-    icon: <Utensils className="h-8 w-8" />,
+    icon: Utensils,
     title: "Authentic South Indian Cuisine",
     description: "Traditional South Indian vegetarian feast served on banana leaves with sambar, rasam, varieties of curries, and authentic regional delicacies.",
     trending: "Wedding catering Coimbatore"
   },
   {
-    icon: <Music className="h-8 w-8" />,
+    icon: Music,
     title: "Traditional Music & Sound",
     description: "Traditional wedding music with professional musicians and artists. Complete sound system for all ceremony and celebration requirements.",
     trending: "Traditional wedding music Tamil Nadu"
   },
   {
-    icon: <Camera className="h-8 w-8" />,
+    icon: Camera,
     title: "Professional Photography",
     description: "Capture every precious moment of your special celebration with our network of experienced photographers specializing in South Indian weddings and events.",
     trending: "Wedding photography Coimbatore"
   },
   {
-    icon: <Car className="h-8 w-8" />,
+    icon: Car,
     title: "Ample Parking Space",
     description: "Free parking for 200+ vehicles with security. Easy access for guests coming from Coimbatore, Tirupur, Erode, and surrounding areas.",
     trending: "Wedding venues with parking Tamil Nadu"
   },
   {
-    icon: <Sparkles className="h-8 w-8" />,
+    icon: Sparkles,
     title: "Traditional Decoration",
     description: "Beautiful traditional mandapam with fresh flowers, decorative elements, and authentic wedding decorations including traditional patterns and arrangements.",
     trending: "Traditional mandapam decoration Coimbatore"
   },
   {
-    icon: <MapPin className="h-8 w-8" />,
+    icon: MapPin,
     title: "Prime Kinathukadavu Location",
     description: "Conveniently located in Kinathukadavu, easily accessible via Coimbatore-Palakkad highway. Serene environment perfect for sacred ceremonies and celebrations.",
     trending: "Wedding venues Kinathukadavu Coimbatore"
@@ -174,14 +61,6 @@ const features: Feature[] = [
 ];
 
 const Features = () => {
-  const [activeFilter, setActiveFilter] = useState("all");
-  const [hoveredFeature, setHoveredFeature] = useState<number | null>(null);
-
-  const filteredVenues = activeFilter === "all" 
-    ? venueData 
-    : activeFilter === "featured" 
-      ? venueData.filter(venue => venue.featured) 
-      : venueData;
 
   return (
     <section className="py-24 bg-gradient-to-br from-slate-50 to-purple-50 overflow-hidden relative">
@@ -423,7 +302,7 @@ const Features = () => {
             >
               <div className="flex items-center justify-center w-16 h-16 bg-primary/10 rounded-2xl mb-4 group-hover:bg-primary/20 transition-colors">
                 <div className="text-primary">
-                  {feature.icon}
+                  <feature.icon className="h-8 w-8" />
                 </div>
               </div>
 

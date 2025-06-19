@@ -4,9 +4,7 @@ import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import { Star, Quote } from "lucide-react";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/autoplay";
+import "./swiper-styles.css";
 
 interface TestimonialProps {
   name: string;
@@ -43,7 +41,7 @@ const testimonials: TestimonialProps[] = [
   },
 ];
 
-const TestimonialCard = ({ name, role, comment, rating, image }: TestimonialProps) => (
+const TestimonialCard = ({ name, role, comment, rating }: TestimonialProps) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}

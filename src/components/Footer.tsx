@@ -178,7 +178,7 @@ const Footer = () => {
               
               {/* Social Links */}
               <div className="flex gap-2">
-                {socialLinks.map((social, index) => (
+                {socialLinks.map((social) => (
                   <motion.a
                     key={social.label}
                     href={social.href}

@@ -1,5 +1,5 @@
 // Performance monitoring and optimization utilities
-import { debounce, throttle, isMobile, prefersReducedMotion } from './utils';
+import { throttle, isMobile, prefersReducedMotion } from './utils';
 
 // Performance metrics tracking
 export interface PerformanceMetrics {
@@ -60,8 +60,12 @@ export class WebVitalsTracker {
       const observer = new PerformanceObserver((list) => {
         const entries = list.getEntries();
         entries.forEach((entry) => {
-          console.debug('FID:', entry.processingStart - entry.startTime);
-          this.metrics.interactionTime = entry.processingStart - entry.startTime;
+          // FID calculation - using duration as fallback for older browsers
+          const processingTime = (entry as any).processingStart ? 
+            (entry as any).processingStart - entry.startTime : 
+            entry.duration;
+          console.debug('FID:', processingTime);
+          this.metrics.interactionTime = processingTime;
         });
       });
       
@@ -218,7 +222,7 @@ export class MobileOptimizer {
     if (!isMobile()) return;
 
     // Optimize touch events
-    document.addEventListener('touchstart', (e) => {
+    document.addEventListener('touchstart', () => {
       this.touchStartTime = Date.now();
     }, { passive: true });
 
@@ -263,7 +267,7 @@ export class MobileOptimizer {
     if (!isMobile()) return;
 
     element.style.setProperty('--tap-highlight-color', 'rgba(0, 0, 0, 0.1)');
-    element.style.WebkitTapHighlightColor = 'transparent';
+    (element.style as any).WebkitTapHighlightColor = 'transparent';
     
     element.addEventListener('touchstart', () => {
       element.style.transform = 'scale(0.98)';

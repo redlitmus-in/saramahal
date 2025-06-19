@@ -1,6 +1,4 @@
-import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Clock, Navigation2 } from "lucide-react";
-import { Button } from "@/components/ui/button";
+// Map component - currently displays static map content
 
 const Map = () => {
   // We're removing the Map component since it's now integrated in the Footer

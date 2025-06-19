@@ -1,11 +1,13 @@
 import * as React from "react"
 import {
   Controller,
+  FormProvider,
+  useFormContext,
+} from "react-hook-form"
+import type {
   ControllerProps,
   FieldPath,
   FieldValues,
-  FormProvider,
-  useFormContext,
 } from "react-hook-form"
 
 import { cn } from "@/lib/utils"
@@ -103,7 +105,7 @@ const FormControl = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ ...props }, ref) => {
-  const { error, formItemId, formDescriptionId, formMessageId } = useFormField()
+  const { error, formDescriptionId, formMessageId } = useFormField()
 
   return (
     <div
