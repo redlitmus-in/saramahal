@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://saramahal.com</loc>
+    <lastmod>2024-01-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://saramahal.com/hero-background.jpg</image:loc>
+      <image:title>Sara Mahal - Premier Wedding Venue in Coimbatore</image:title>
+      <image:caption>Traditional Tamil wedding venue in Kinathukadavu, Coimbatore with modern amenities</image:caption>
+    </image:image>
+  </url>
+
+  <!-- About Page -->
+  <url>
+    <loc>https://saramahal.com#about</loc>
+    <lastmod>2024-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://saramahal.com/public/timeline/welcome.jpg</image:loc>
+      <image:title>About Sara Mahal Wedding Venue</image:title>
+      <image:caption>Learn about our 15+ years of experience hosting Tamil weddings in Coimbatore</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Gallery Page -->
+  <url>
+    <loc>https://saramahal.com#gallery</loc>
+    <lastmod>2024-01-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://saramahal.com/public/timeline/vows.jpg</image:loc>
+      <image:title>Sara Mahal Wedding Gallery</image:title>
+      <image:caption>Beautiful photos of Tamil weddings at Sara Mahal, Kinathukadavu</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://saramahal.com/public/timeline/garlanding.jpg</image:loc>
+      <image:title>Traditional Tamil Wedding Ceremonies</image:title>
+      <image:caption>Authentic Tamil wedding rituals at Sara Mahal</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://saramahal.com/public/timeline/reception.jpg</image:loc>
+      <image:title>Wedding Reception at Sara Mahal</image:title>
+      <image:caption>Elegant wedding reception setup at Sara Mahal Coimbatore</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Contact Page -->
+  <url>
+    <loc>https://saramahal.com#contact</loc>
+    <lastmod>2024-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Pricing/Features Page -->
+  <url>
+    <loc>https://saramahal.com#features</loc>
+    <lastmod>2024-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Testimonials Page -->
+  <url>
+    <loc>https://saramahal.com#testimonials</loc>
+    <lastmod>2024-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- FAQ Page -->
+  <url>
+    <loc>https://saramahal.com#faq</loc>
+    <lastmod>2024-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Location-specific pages -->
+  <url>
+    <loc>https://saramahal.com/wedding-venues-coimbatore</loc>
+    <lastmod>2024-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://saramahal.com/tamil-wedding-halls-kinathukadavu</loc>
+    <lastmod>2024-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://saramahal.com/marriage-halls-tamil-nadu</loc>
+    <lastmod>2024-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset> 

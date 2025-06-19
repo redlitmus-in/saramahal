@@ -1,0 +1,81 @@
+{
+  "name": "Sara Mahal - Premier Wedding Venue in Coimbatore",
+  "short_name": "Sara Mahal",
+  "description": "Premier Tamil wedding venue in Kinathukadavu, Coimbatore. Traditional marriage halls with modern amenities for your perfect wedding celebration.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#8B5CF6",
+  "orientation": "portrait-primary",
+  "categories": ["lifestyle", "social", "entertainment"],
+  "lang": "en-IN",
+  "dir": "ltr",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png", 
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Book Wedding Date",
+      "short_name": "Book Now",
+      "description": "Check availability and book your wedding date at Sara Mahal",
+      "url": "/#contact",
+      "icons": [
+        {
+          "src": "/favicon.svg",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "View Gallery", 
+      "short_name": "Gallery",
+      "description": "View photos of Tamil weddings at Sara Mahal",
+      "url": "/#gallery",
+      "icons": [
+        {
+          "src": "/favicon.svg", 
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Contact Us",
+      "short_name": "Contact", 
+      "description": "Get in touch with Sara Mahal wedding venue",
+      "url": "/#contact",
+      "icons": [
+        {
+          "src": "/favicon.svg",
+          "sizes": "96x96" 
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/hero-background.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "Sara Mahal Wedding Venue Homepage"
+    }
+  ]
+} 

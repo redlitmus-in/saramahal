@@ -1,0 +1,655 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+:root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+ 
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+ 
+    --primary: 267 85% 40%; /* #5a1cb3 - rich purple */
+    --primary-foreground: 0 0% 100%;
+ 
+    --secondary: 280 75% 60%; /* #9c3ed3 - medium purple */
+    --secondary-foreground: 0 0% 100%;
+ 
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+ 
+    --accent: 292 70% 30%; /* #6d1b6d - deep plum */
+    --accent-foreground: 0 0% 100%;
+ 
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 267 85% 40%;
+ 
+    --radius: 0.5rem;
+
+    --font-sans: "Inter", sans-serif;
+    --font-serif: "DM Serif Display", serif;
+  }
+ 
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+ 
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+ 
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+ 
+    --primary: 267 85% 40%; /* #5a1cb3 - rich purple */
+    --primary-foreground: 0 0% 100%;
+ 
+    --secondary: 280 75% 60%; /* #9c3ed3 - medium purple */
+    --secondary-foreground: 0 0% 100%;
+ 
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+ 
+    --accent: 292 70% 30%; /* #6d1b6d - deep plum */
+    --accent-foreground: 0 0% 98%;
+ 
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+ 
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 267 85% 40%;
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    font-size: 10px; /* Reduced base for mobile (was 12px) */
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  @media (min-width: 480px) {
+    html {
+      font-size: 11px; /* Reduced (was 13px) */
+    }
+  }
+  
+  @media (min-width: 640px) {
+    html {
+      font-size: 12px; /* Reduced (was 14px) */
+    }
+  }
+  
+  @media (min-width: 768px) {
+    html {
+      font-size: 12.5px; /* Reduced (was 15px) */
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    html {
+      font-size: 13px; /* Reduced for laptop (was 16px) - this is the key change */
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    html {
+      font-size: 13.5px; /* Reduced (was 16px) */
+    }
+  }
+  
+  @media (min-width: 1536px) {
+    html {
+      font-size: 14px; /* Reduced (was 17px) */
+    }
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+    /* Improved mobile performance */
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Re-enable text selection for content areas */
+  p, span, div[class*="text"], h1, h2, h3, h4, h5, h6 {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-serif);
+    line-height: 1.2;
+  }
+  
+  .container {
+    max-width: 960px; /* Reduced from 1200px to 960px for 80% scale */
+    margin: 0 auto;
+    padding-left: 0.6rem; /* Reduced for mobile (was 0.75rem) */
+    padding-right: 0.6rem;
+  }
+  
+  @media (min-width: 480px) {
+    .container {
+      padding-left: 0.8rem; /* Reduced (was 1rem) */
+      padding-right: 0.8rem;
+    }
+  }
+  
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1rem; /* Reduced (was 1.25rem) */
+      padding-right: 1rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 1.2rem; /* Reduced (was 1.5rem) */
+      padding-right: 1.2rem;
+    }
+  }
+}
+
+/* Mobile-First Responsive Spacing - Reduced by ~20% for 80% scale */
+.section-spacing {
+  @apply py-5 sm:py-6 md:py-10 lg:py-13 xl:py-16;
+}
+
+.section-spacing-lg {
+  @apply py-6 sm:py-10 md:py-13 lg:py-16 xl:py-19;
+}
+
+.section-spacing-sm {
+  @apply py-3 sm:py-5 md:py-6 lg:py-10;
+}
+
+/* Mobile-optimized text scaling - Reduced for 80% scale */
+.text-responsive-xl {
+  @apply text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl;
+}
+
+.text-responsive-2xl {
+  @apply text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl;
+}
+
+.text-responsive-3xl {
+  @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl;
+}
+
+/* Optimized mobile screen heights */
+.min-h-screen-laptop {
+  min-height: 100vh;
+  min-height: 100svh; /* Use safe viewport height on mobile */
+}
+
+@media (min-width: 1024px) and (max-height: 800px) {
+  .min-h-screen-laptop {
+    min-height: 90vh;
+  }
+}
+
+@media (min-width: 1024px) and (max-height: 600px) {
+  .min-h-screen-laptop {
+    min-height: 85vh;
+  }
+}
+
+/* Reduced motion for mobile performance */
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-float-slow,
+  .floating-hearts,
+  .star-bg {
+    animation: none;
+  }
+}
+
+/* Mobile-optimized animations */
+.animate-float {
+  animation: floating 8s ease-in-out infinite; /* Slower for mobile */
+}
+
+.animate-float-slow {
+  animation: floating 10s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0% { transform: translate(0, 0px); }
+  50% { transform: translate(0, 10px); } /* Reduced movement */
+  100% { transform: translate(0, 0px); }   
+}
+
+/* Performance-optimized glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Simplified glass for mobile */
+@media (max-width: 640px) {
+  .glass {
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Optimized underline animation */
+.animated-underline {
+  position: relative;
+  text-decoration: none;
+}
+
+.animated-underline:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: currentColor;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.animated-underline:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Mobile-friendly scrollbar */
+::-webkit-scrollbar {
+  width: 8px; /* Thinner for mobile */
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.3);
+  border-radius: 10px;
+  border: 2px solid transparent;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.5);
+}
+
+/* Gradient text with fallback */
+.gradient-text {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--primary)) 0%,
+    hsl(var(--secondary)) 50%,
+    hsl(var(--accent)) 100%
+  );
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientShift 4s ease-in-out infinite;
+}
+
+/* Premium image with mobile optimization */
+.premium-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  transform: translateZ(0); /* Hardware acceleration */
+  will-change: transform;
+}
+
+/* Mobile-optimized reveal animations */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px); /* Reduced for mobile */
+  transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.reveal-on-scroll.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggered animation delays - reduced for mobile */
+.reveal-on-scroll-delay-1 {
+  transition-delay: 0.1s;
+}
+
+.reveal-on-scroll-delay-2 {
+  transition-delay: 0.2s;
+}
+
+.reveal-on-scroll-delay-3 {
+  transition-delay: 0.3s;
+}
+
+.reveal-on-scroll-delay-4 {
+  transition-delay: 0.4s;
+}
+
+/* Modern WhatsApp Button is now handled by React component */
+
+/* Wedding-themed decorative elements - mobile optimized */
+.wedding-bg-pattern {
+  position: relative;
+}
+
+.wedding-bg-pattern::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230ee4b0' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.3; /* Reduced for mobile */
+  z-index: -1;
+}
+
+/* Floating hearts background - mobile optimized */
+.floating-hearts {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.heart {
+  position: absolute;
+  width: 8px; /* Smaller for mobile */
+  height: 8px;
+  background: rgba(255, 95, 120, 0.08); /* More transparent */
+  transform: rotate(45deg);
+  animation: heartFloat linear infinite;
+}
+
+.heart::before,
+.heart::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 95, 120, 0.08);
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -4px;
+}
+
+.heart::after {
+  left: -4px;
+}
+
+/* Slower animation for mobile performance */
+@keyframes heartFloat {
+  0% {
+    transform: rotate(45deg) translateY(0) rotate(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: rotate(45deg) translateY(-100vh) rotate(180deg);
+    opacity: 0;
+  }
+}
+
+/* Flower decoration - simplified for mobile */
+.flower-decoration {
+  position: absolute;
+  width: 40px; /* Smaller for mobile */
+  height: 40px;
+  z-index: -1;
+  opacity: 0.05; /* More transparent */
+}
+
+.flower-decoration::before {
+  content: '✿';
+  font-size: 32px; /* Smaller for mobile */
+  color: var(--primary);
+}
+
+/* Elegant section divider - mobile optimized */
+.section-divider {
+  position: relative;
+  height: 30px; /* Reduced for mobile */
+  overflow: hidden;
+}
+
+.section-divider::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(14, 228, 176, 0.2), rgba(255, 95, 120, 0.2), transparent);
+}
+
+.section-divider::after {
+  content: '❦';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 0 15px; /* Reduced for mobile */
+  color: rgba(255, 95, 120, 0.4);
+  font-size: 16px; /* Smaller for mobile */
+}
+
+/* Simplified sparkle effect for mobile */
+.sparkle {
+  position: relative;
+}
+
+.sparkle::after {
+  content: '';
+  position: absolute;
+  width: 6px; /* Smaller for mobile */
+  height: 6px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 0 8px 1px rgba(255, 255, 255, 0.6);
+  animation: sparkleAnimation 5s ease-in-out infinite; /* Slower for mobile */
+  opacity: 0;
+}
+
+@keyframes sparkleAnimation {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 0.8; /* Reduced for mobile */
+    transform: scale(1);
+  }
+}
+
+/* Touch-friendly image hover effect */
+.image-hover-zoom {
+  overflow: hidden;
+}
+
+.image-hover-zoom img {
+  transition: transform 0.3s ease; /* Faster for mobile */
+}
+
+.image-hover-zoom:hover img,
+.image-hover-zoom:focus img {
+  transform: scale(1.03); /* Reduced for mobile */
+}
+
+/* Touch devices optimization */
+@media (hover: none) and (pointer: coarse) {
+  .image-hover-zoom:active img {
+    transform: scale(1.02);
+  }
+  
+  .image-hover-zoom:hover img {
+    transform: none;
+  }
+}
+
+/* Decorative corner flourish - simplified for mobile */
+.corner-flourish {
+  position: relative;
+}
+
+.corner-flourish::before,
+.corner-flourish::after {
+  content: '';
+  position: absolute;
+  width: 20px; /* Smaller for mobile */
+  height: 20px;
+  opacity: 0.08; /* More transparent */
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.corner-flourish::before {
+  top: 10px;
+  left: 10px;
+}
+
+.corner-flourish::after {
+  bottom: 10px;
+  right: 10px;
+}
+
+/* Simplified twinkle animation for mobile */
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.05;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.2; /* Reduced for mobile */
+    transform: scale(1);
+  }
+}
+
+/* Star background - mobile optimized */
+.star-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  background: white;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  animation: twinkle 4s ease-in-out infinite; /* Slower for mobile */
+}
+
+/* Reduced star positions for mobile performance */
+.star:nth-child(1) {
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.star:nth-child(2) {
+  top: 20%;
+  right: 20%;
+  animation-delay: 1s;
+}
+
+.star:nth-child(3) {
+  bottom: 30%;
+  left: 30%;
+  animation-delay: 2s;
+}
+
+.star:nth-child(4) {
+  bottom: 20%;
+  right: 10%;
+  animation-delay: 3s;
+}
+
+.star:nth-child(5) {
+  top: 50%;
+  left: 50%;
+  animation-delay: 4s;
+}
+
+/* Parallax background - disabled on mobile for performance */
+.parallax-bg {
+  transform: translateZ(0); /* Hardware acceleration */
+}
+
+@media (max-width: 768px) {
+  .parallax-bg {
+    transform: none !important;
+  }
+}
+
+/* Touch-friendly button styling */
+.touch-manipulation {
+  touch-action: manipulation;
+}
+
+/* Improved mobile focus states */
+@media (max-width: 768px) {
+  button:focus,
+  a:focus,
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 2px;
+  }
+}
