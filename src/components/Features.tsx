@@ -393,14 +393,14 @@ const Features = () => {
                 <path d="M6 14 Q10 11 14 14 Q10 17 6 14" stroke="currentColor" strokeWidth="1.2" fill="none"/>
               </svg>
             )}
-          </motion.div>
-        ))}
-      </div>
+                </motion.div>
+              ))}
+            </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
@@ -410,7 +410,7 @@ const Features = () => {
             Sara Mahal offers everything you need for an authentic celebration in Coimbatore. 
             From traditional ceremonies to modern amenities, we ensure your special day is perfect in every way.
           </p>
-        </motion.div>
+              </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {features.map((feature, index) => (

@@ -60,15 +60,15 @@ const DecorativeElement = memo(({
 // Generate random positions with memoization for better performance
 const useDecorativePositions = () => {
   return useMemo(() => {
-    const generateRandomPositions = (count: number) => {
-      return Array.from({ length: count }, () => ({
-        top: `${Math.random() * 100}%`,
-        left: `${Math.random() * 100}%`,
-        size: Math.random() * 20 + 10,
-        delay: Math.random() * 5,
-        duration: Math.random() * 10 + 10
-      }));
-    };
+const generateRandomPositions = (count: number) => {
+  return Array.from({ length: count }, () => ({
+    top: `${Math.random() * 100}%`,
+    left: `${Math.random() * 100}%`,
+    size: Math.random() * 20 + 10,
+    delay: Math.random() * 5,
+    duration: Math.random() * 10 + 10
+  }));
+};
 
     return {
       hearts: generateRandomPositions(8), // Reduced from 15 for mobile performance
@@ -86,16 +86,16 @@ const useOptimizedScroll = () => {
     const handleScroll = () => {
       if (!ticking) {
         requestAnimationFrame(() => {
-          const animatedElements = document.querySelectorAll('.reveal-on-scroll');
+      const animatedElements = document.querySelectorAll('.reveal-on-scroll');
           const windowHeight = window.innerHeight;
-          
-          animatedElements.forEach((element) => {
-            const elementTop = element.getBoundingClientRect().top;
-            
+      
+      animatedElements.forEach((element) => {
+        const elementTop = element.getBoundingClientRect().top;
+        
             if (elementTop < windowHeight - 50) { // Reduced threshold for mobile
-              element.classList.add('active');
-            }
-          });
+          element.classList.add('active');
+        }
+      });
           
           ticking = false;
         });
@@ -177,64 +177,64 @@ function App() {
       
       {/* Lazy loaded sections with improved mobile spacing */}
       <Suspense fallback={<LazyLoadSpinner />}>
-        <div className="section-divider" />
-        
-        <div id="about" className="corner-flourish">
-          <About />
-        </div>
+      <div className="section-divider" />
+      
+      <div id="about" className="corner-flourish">
+        <About />
+      </div>
         
         <div className="section-divider" />
         
         <div id="event-types">
           <EventTypes />
         </div>
-        
-        <div className="section-divider" />
-        
-        <div id="features">
-          <Features />
-        </div>
-        
-        <div className="section-divider" />
-        
-        <CeremonyTimeline />
-        
-        <div className="section-divider" />
-        
-        <PricingTable />
-        
-        <div className="section-divider" />
-        
-        <div id="gallery" className="corner-flourish">
-          <Gallery />
-        </div>
-        
-        <div className="section-divider" />
-        
-        <div id="testimonials">
-          <Testimonials />
-        </div>
-        
-        <div className="section-divider" />
-        
-        <CTA />
-        
-        <div className="section-divider" />
-        
-        <div id="faq">
-          <FAQ />
-        </div>
-        
-        <div className="section-divider" />
-        
-        <div id="contact" className="corner-flourish">
-          <Contact onFormSubmit={handleConfetti} />
-        </div>
-        
-        <Footer />
+      
+      <div className="section-divider" />
+      
+      <div id="features">
+        <Features />
+      </div>
+      
+      <div className="section-divider" />
+      
+      <CeremonyTimeline />
+      
+      <div className="section-divider" />
+      
+      <PricingTable />
+      
+      <div className="section-divider" />
+      
+      <div id="gallery" className="corner-flourish">
+        <Gallery />
+      </div>
+      
+      <div className="section-divider" />
+      
+      <div id="testimonials">
+        <Testimonials />
+      </div>
+      
+      <div className="section-divider" />
+      
+      <CTA />
+      
+      <div className="section-divider" />
+      
+      <div id="faq">
+        <FAQ />
+      </div>
+      
+      <div className="section-divider" />
+      
+      <div id="contact" className="corner-flourish">
+        <Contact onFormSubmit={handleConfetti} />
+      </div>
+      
+      <Footer />
         
         {/* WhatsApp button - mobile optimized */}
-        <WhatsAppButton phoneNumber="+919876543210" />
+      <WhatsAppButton phoneNumber="+919876543210" />
       </Suspense>
     </main>
   );
