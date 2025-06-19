@@ -1,0 +1,35 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://saramahal.com/sitemap.xml
+
+# Preferred host
+Host: https://saramahal.com
+
+# Crawl-delay for search engines
+Crawl-delay: 1
+
+# Allow all important pages
+Allow: /about
+Allow: /gallery
+Allow: /contact
+Allow: /pricing
+Allow: /testimonials
+Allow: /faq
+
+# Block admin or unnecessary paths (if any)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Allow images and assets
+Allow: /public/
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.png
+Allow: /*.webp
+Allow: /*.svg
+Allow: /*.css
+Allow: /*.js 
