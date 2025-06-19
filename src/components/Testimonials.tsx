@@ -46,19 +46,19 @@ const TestimonialCard = ({ name, role, comment, rating }: TestimonialProps) => (
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5 }}
-    className="p-8 bg-gradient-to-b from-white to-gray-50 rounded-2xl shadow-lg group h-full relative"
+    className="p-6 bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 h-full flex flex-col relative group border border-gray-100"
   >
-    <div className="absolute top-6 right-8 text-primary">
-      <Quote size={40} className="opacity-20" />
+    <div className="absolute top-4 right-4 text-primary opacity-10">
+      <Quote size={32} />
     </div>
     
-    <div className="flex items-center mb-6 gap-4">
-      <div className="w-16 h-16 rounded-full bg-gradient-to-r from-primary/20 to-primary/40 flex items-center justify-center text-primary font-serif text-xl">
+    <div className="flex items-center mb-4 gap-3">
+      <div className="w-12 h-12 rounded-full bg-gradient-to-r from-primary/20 to-purple-400/30 flex items-center justify-center text-primary font-serif text-lg font-semibold">
         {name.charAt(0)}
       </div>
-      <div>
-        <h4 className="text-xl font-semibold">{name}</h4>
-        <p className="text-gray-600">{role}</p>
+      <div className="flex-1">
+        <h4 className="text-lg font-semibold text-gray-900">{name}</h4>
+        <p className="text-sm text-gray-500">{role}</p>
       </div>
     </div>
     
@@ -66,14 +66,14 @@ const TestimonialCard = ({ name, role, comment, rating }: TestimonialProps) => (
       {[...Array(5)].map((_, i) => (
         <Star 
           key={i} 
-          className={`w-4 h-4 ${i < rating ? "text-yellow-500 fill-yellow-500" : "text-gray-300"}`}
+          className={`w-4 h-4 ${i < rating ? "text-yellow-400 fill-yellow-400" : "text-gray-200"}`}
         />
       ))}
     </div>
     
-    <p className="text-gray-700 mb-6">{comment}</p>
+    <p className="text-gray-700 leading-relaxed flex-1 text-sm">{comment}</p>
     
-    <div className="absolute bottom-0 left-0 w-0 h-1 bg-primary group-hover:w-full transition-all duration-300"></div>
+    <div className="absolute bottom-0 left-0 w-0 h-1 bg-gradient-to-r from-primary to-purple-500 group-hover:w-full transition-all duration-500"></div>
   </motion.div>
 );
 
@@ -94,26 +94,43 @@ const Testimonials = () => {
           </p>
         </motion.div>
         
-        <Swiper
-          modules={[Pagination, Autoplay]}
-          spaceBetween={30}
-          slidesPerView={1}
-          pagination={{ clickable: true }}
-          autoplay={{ delay: 5000, disableOnInteraction: false }}
-          breakpoints={{
-            640: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
-          }}
-          className="pb-16"
-        >
-          {testimonials.map((testimonial, index) => (
-            <SwiperSlide key={index}>
-              <div className="h-full">
+        <div className="max-w-7xl mx-auto">
+          <Swiper
+            modules={[Pagination, Autoplay]}
+            spaceBetween={24}
+            slidesPerView={1}
+            pagination={{ 
+              clickable: true,
+              dynamicBullets: true 
+            }}
+            autoplay={{ 
+              delay: 4000, 
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true 
+            }}
+            breakpoints={{
+              640: { 
+                slidesPerView: 2,
+                spaceBetween: 20 
+              },
+              1024: { 
+                slidesPerView: 3,
+                spaceBetween: 30 
+              },
+            }}
+            className="testimonials-swiper"
+            style={{ 
+              paddingBottom: '60px',
+              overflow: 'visible' 
+            }}
+          >
+            {testimonials.map((testimonial, index) => (
+              <SwiperSlide key={index} style={{ height: 'auto' }}>
                 <TestimonialCard {...testimonial} />
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </div>
     </section>
   );
